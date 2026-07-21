@@ -173,6 +173,7 @@
                         <th class="px-4 py-3 text-left font-medium">Kategori</th>
                         <th class="px-4 py-3 text-left font-medium">Judul / Indikator</th>
                         <th class="px-4 py-3 text-center font-medium">Target</th>
+                        <th class="px-4 py-3 text-center font-medium">Tanggal Input</th>
                         <th class="px-4 py-3 text-center font-medium">Aksi</th>
                     </tr>
                 </thead>
@@ -201,6 +202,9 @@
                         <td class="px-4 py-3 text-center">
                             <span class="font-bold text-blue-700 text-base">{{ number_format($mt->target) }}</span>
                         </td>
+                        <td class="px-4 py-3 text-center text-gray-600 whitespace-nowrap">
+                            {{ $mt->created_at ? $mt->created_at->format('d M Y') : '-' }}
+                        </td>
                         <td class="px-4 py-3 text-center">
                             <div class="flex items-center justify-center gap-2">
                                 <a href="{{ route('master-target.edit', $mt->id) }}"
@@ -220,7 +224,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="5" class="px-6 py-12 text-center text-gray-400">
+                        <td colspan="6" class="px-6 py-12 text-center text-gray-400">
                             <i class="fas fa-bullseye text-4xl mb-3 block text-gray-300"></i>
                             <div class="font-medium text-gray-500">Belum ada master target.</div>
                             <div class="text-xs mt-1">Klik tombol "Tambah Target" untuk menambahkan.</div>
