@@ -64,7 +64,7 @@
     position:relative;
     z-index:1;
     width:100%;
-    max-width:460px;
+    max-width:500px;
     background:var(--white);
     border-radius:12px;
     box-shadow:0 30px 60px rgba(15,23,42,0.35);
@@ -77,12 +77,12 @@
   .logo-row {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
     margin-bottom: 36px;
   }
 
   .logo-row img {
-    height: 60px;
+    height: 75px;
     object-fit: contain;
   }
 
@@ -92,14 +92,14 @@
   }
 
   .logo-text .name {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 800;
     line-height: 1.1;
     color: var(--ink);
   }
 
   .logo-text .sub {
-    font-size: 11.5px;
+    font-size: 14px;
     letter-spacing: 1.5px;
     font-weight: 700;
     color: var(--muted);
@@ -202,6 +202,14 @@
     margin-top: 6px;
     font-weight: 500;
   }
+
+  .footer-text {
+    margin-top: 28px;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    width: 100%;
+  }
 </style>
 </head>
 <body>
@@ -247,6 +255,10 @@
 
       <button type="submit" class="btn-signin">Login</button>
     </form>
+
+    <div class="footer-text">
+      Belum punya akun? Hubungi admin.
+    </div>
 
   </div>
 
