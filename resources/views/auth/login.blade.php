@@ -14,8 +14,8 @@
     --navy-accent:#5b76a8;
     --ink:#1f2733;
     --muted:#7a8496;
-    --line:#e6e9f0;
-    --bg-page:#eef1f6;
+    --line:#cbd5e1;
+    --bg-page:#f8fafc;
     --white:#ffffff;
   }
 
@@ -41,7 +41,7 @@
 
   body{
     margin:0;
-    font-family:'Segoe UI', Arial, sans-serif;
+    font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
     background: linear-gradient(-45deg, var(--navy-900), #1e293b, var(--navy-700), var(--navy-800));
     background-size: 400% 400%;
     animation: gradientBg 15s ease infinite;
@@ -59,199 +59,124 @@
     pointer-events:none;
     z-index: 0;
   }
-  /* dynamic shapes style */
 
   .card{
     position:relative;
     z-index:1;
-    display:flex;
     width:100%;
-    max-width:920px;
-    min-height:480px;
+    max-width:420px;
     background:var(--white);
     border-radius:18px;
     overflow:hidden;
     box-shadow:0 30px 60px rgba(15,23,42,0.35);
+    padding: 44px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* Left panel: keeps the deep slate-blue identity + illustration feel of Image 1,
-     but now carries the intro copy + feature list structure of Image 2 */
-  .panel-left{
-    flex:1 1 46%;
-    background: linear-gradient(160deg, var(--navy-800), var(--navy-900));
-    color:var(--white);
-    padding:48px 40px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    position:relative;
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    text-align: center;
   }
 
-  .brand-tag{
-    font-size:13px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:rgba(255,255,255,0.6);
-    margin-bottom:14px;
+  .logo-container img {
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 16px;
   }
 
-  .panel-left h1{
-    font-size:24px;
-    line-height:1.35;
-    margin:0 0 16px;
-    font-weight:700;
+  .login-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 6px 0;
   }
 
-  .panel-left p{
-    font-size:14.5px;
-    line-height:1.7;
-    color:rgba(255,255,255,0.78);
-    margin:0 0 32px;
-    max-width:340px;
+  .login-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
   }
 
-  .feature-list{
-    list-style:none;
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
+  .form-container {
+    width: 100%;
   }
 
-  .feature-list li{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    font-size:14px;
-    font-weight:600;
+  /* Stacked input fields */
+  .input-group {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    width: 100%;
   }
 
-  .feature-icon{
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.12);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-  }
-  .feature-icon svg{width:17px;height:17px;fill:none;stroke:#fff;stroke-width:2;}
-
-  /* Right panel: login form, kept clean/white like Image 1 */
-  .panel-right{
-    flex:1 1 54%;
-    padding:48px 52px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+  .input-field {
+    position: relative;
+    background: #fafbfc;
   }
 
-  .logo-mark{
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    overflow:hidden;
-  }
-  .logo-mark img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-  .logo-row{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:8px;
+  .input-field:first-child {
+    border-bottom: 1px solid var(--line);
   }
 
-  .logo-text{
-    line-height:1.2;
-  }
-  .logo-text .name{
-    font-weight:800;
-    font-size:16px;
-    color:var(--ink);
-    letter-spacing:0.5px;
-  }
-  .logo-text .sub{
-    font-size:10.5px;
-    letter-spacing:1.5px;
-    color:var(--muted);
-    text-transform:uppercase;
+  .input-field svg.field-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    stroke: var(--muted);
+    fill: none;
+    stroke-width: 1.8;
+    pointer-events: none;
   }
 
-  .form-heading{
-    margin:34px 0 4px;
-    font-size:24px;
-    font-weight:700;
-    color:var(--ink);
-  }
-  .form-sub{
-    margin:0 0 30px;
-    font-size:13.5px;
-    color:var(--muted);
+  .input-field input {
+    width: 100%;
+    padding: 15px 14px 15px 44px;
+    border: none;
+    font-size: 14.5px;
+    color: var(--ink);
+    background: transparent;
+    outline: none;
+    transition: background-color .15s;
   }
 
-  .field{
-    margin-bottom:20px;
+  .input-field input:focus {
+    background-color: #ffffff;
   }
-  .field label{
-    display:block;
-    font-size:13.5px;
-    font-weight:600;
-    color:var(--ink);
-    margin-bottom:8px;
-  }
-  .input-wrap{
-    position:relative;
-  }
-  .input-wrap svg{
-    position:absolute;
-    left:14px;
-    top:50%;
-    transform:translateY(-50%);
-    width:16px;
-    height:16px;
-    stroke:var(--muted);
-    fill:none;
-    stroke-width:1.8;
-  }
-  .input-wrap input{
-    width:100%;
-    padding:13px 14px 13px 40px;
-    border:1px solid var(--line);
-    border-radius:8px;
-    font-size:14px;
-    color:var(--ink);
-    background:#fafbfc;
-    outline:none;
-    transition:border-color .15s, box-shadow .15s;
-  }
-  .input-wrap input:focus{
-    border-color:var(--navy-600);
-    box-shadow:0 0 0 3px rgba(74,95,136,0.12);
-    background:#fff;
-  }
-  .toggle-eye{
-    left:auto;
-    right:14px;
-    cursor:pointer;
-    pointer-events:auto;
+
+  .toggle-eye {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    stroke: var(--muted);
+    fill: none;
+    stroke-width: 1.8;
+    cursor: pointer;
   }
 
   .row-between{
     display:flex;
     align-items:center;
     justify-content:flex-start;
-    margin-bottom:26px;
+    margin-bottom:24px;
     padding-left: 2px;
+    width: 100%;
   }
+
   .remember{
     display:flex;
     align-items:center;
@@ -260,41 +185,60 @@
     color:var(--ink);
     cursor:pointer;
   }
-  .remember input{accent-color:var(--navy-700);width:15px;height:15px;cursor:pointer;margin:0;}
-  .forgot{
-    font-size:13px;
-    color:var(--navy-700);
-    text-decoration:none;
-    font-weight:600;
+
+  .remember input{
+    accent-color:var(--navy-700);
+    width:15px;
+    height:15px;
+    cursor:pointer;
+    margin:0;
   }
-  .forgot:hover{text-decoration:underline;}
 
   .btn-signin{
     width:100%;
-    padding:14px;
+    padding: 14px;
     border:none;
     border-radius:8px;
-    background: linear-gradient(135deg, var(--navy-700), var(--navy-900));
+    background: #0470D4;
     color:#fff;
     font-size:15px;
     font-weight:700;
     letter-spacing:0.3px;
     cursor:pointer;
-    transition:opacity .15s, transform .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color .15s, transform .15s;
   }
-  .btn-signin:hover{opacity:0.92;transform:translateY(-1px);}
+
+  .btn-signin:hover{
+    background-color: #035eb3;
+    transform:translateY(-1px);
+  }
+
+  .btn-signin svg {
+    flex-shrink: 0;
+  }
 
   .error-text{
     color:#ef4444;
     font-size:12px;
-    margin-top:6px;
+    margin-top:4px;
     font-weight:500;
+    padding: 0 4px;
   }
 
-  @media (max-width:760px){
-    .card{flex-direction:column;max-width:420px;}
-    .panel-left{padding:36px 30px;}
-    .panel-right{padding:36px 30px;}
+  .footer-text {
+    margin-top: 28px;
+    font-size: 13.5px;
+    color: var(--muted);
+    text-align: center;
+    width: 100%;
+  }
+
+  @media (max-width:480px){
+    .card{padding:36px 24px;}
   }
 </style>
 </head>
@@ -305,73 +249,50 @@
 
   <div class="card">
 
-    <!-- LEFT: identity + feature highlights -->
-    <div class="panel-left">
-      <h1>Dashboard Monitoring Kinerja Non-Finansial Center of Excellence di Lingkungan RI-CCSL</h1>
-      <p>Pantau, kelola, dan evaluasi kinerja non-finansial Center of Excellence secara terpusat dan real-time di lingkungan RI-CCSL.</p>
-
-      <ul class="feature-list">
-        <li>
-          <span class="feature-icon" style="font-size: 16px;">✍️</span>
-          Input capaian kinerja dengan mudah
-        </li>
-        <li>
-          <span class="feature-icon" style="font-size: 16px;">✅</span>
-          Proses verifikasi data yang terstruktur
-        </li>
-        <li>
-          <span class="feature-icon" style="font-size: 16px;">📊</span>
-          Monitoring progres setiap unit kerja
-        </li>
-      </ul>
+    <div class="logo-container">
+      <img src="{{ asset('assets/logo_riccsl.png') }}" alt="CCSL Research Institute">
+      <h2 class="login-title">Login ke Monitoring Kinerja</h2>
+      <p class="login-subtitle">CCSL Research Institute</p>
     </div>
 
-    <!-- RIGHT: login form -->
-    <div class="panel-right">
-      <div class="logo-row" style="margin-bottom: 30px;">
-        <img src="{{ asset('assets/logo_riccsl.png') }}" alt="CCSL Research Institute" style="height: 90px; object-fit: contain;">
-        <div class="logo-text">
-          <div class="name" style="font-size: 26px; font-weight: 800; line-height: 1.1;">CCSL</div>
-          <div class="sub" style="font-size: 13px; letter-spacing: 2px; font-weight: 700; color: var(--muted); margin-top: 4px;">RESEARCH INSTITUTE</div>
+    <form action="{{ route('login.post') }}" method="POST" class="form-container">
+      @csrf
+      
+      <div class="input-group">
+        <div class="input-field">
+          <svg class="field-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          <input type="text" name="username" id="username" placeholder="Username" value="{{ old('username') }}" required>
+        </div>
+
+        <div class="input-field">
+          <svg class="field-icon" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <svg class="toggle-eye" onclick="togglePw()" viewBox="0 0 24 24" id="eyeIcon"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
       </div>
 
-      <form action="{{ route('login.post') }}" method="POST">
-        @csrf
-        
-        <div class="field">
-          <label for="username">Username <span style="color:#ef4444">*</span></label>
-          <div class="input-wrap">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-            <input type="text" name="username" id="username" placeholder="Enter your username" value="{{ old('username') }}" required>
-          </div>
-          @error('username')
-            <div class="error-text">{{ $message }}</div>
-          @enderror
-        </div>
+      @error('username')
+        <div class="error-text" style="margin-top: -12px; margin-bottom: 12px;">{{ $message }}</div>
+      @enderror
+      @error('password')
+        <div class="error-text" style="margin-top: -12px; margin-bottom: 12px;">{{ $message }}</div>
+      @enderror
 
-        <div class="field">
-          <label for="password">Password <span style="color:#ef4444">*</span></label>
-          <div class="input-wrap">
-            <svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-            <input type="password" name="password" id="password" placeholder="Enter your password" required>
-            <svg class="toggle-eye" onclick="togglePw()" viewBox="0 0 24 24" id="eyeIcon"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          @error('password')
-            <div class="error-text">{{ $message }}</div>
-          @enderror
-        </div>
+      <div class="row-between">
+        <label class="remember" for="remember">
+          <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+          Remember me
+        </label>
+      </div>
 
-        <div class="row-between">
-          <label class="remember" for="remember">
-            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-            Remember me
-          </label>
-        </div>
+      <button type="submit" class="btn-signin">
+        <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        Login
+      </button>
+    </form>
 
-        <button type="submit" class="btn-signin">Login</button>
-      </form>
-
+    <div class="footer-text">
+      Belum punya akun? Hubungi admin.
     </div>
 
   </div>
